@@ -1,0 +1,193 @@
+  /* General styles */
+  body {
+    margin: 0;
+    font-family: 'Georgia', sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fecfef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    color: #4a4a4a;
+    overflow: hidden;
+}
+
+/* Container for the message */
+.container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px; /* Restrict container width */
+    max-height: 80vh; /* Keeps container within viewport */
+    overflow-y: auto;
+    transform: scale(0.95);
+    animation: pop-in 1s ease forwards;
+    position: relative;
+}
+
+/* Scrollbar styling */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #ff6584;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #ff6584;
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    font-family: 'Cursive', sans-serif;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Message with background image */
+.message {
+    font-size: 1.2em;
+    color: #ffffff;
+    background-image: url('https://imgur.com/u687lCW.jpg');
+    background-size: contain; /* Contain instead of cover */
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    padding: 20px;
+    line-height: 1.8em;
+    margin-top: 30px;
+    opacity: 0;
+    animation: fade-in 2s ease forwards;
+}
+
+/* Button styling */
+.btn {
+    padding: 12px 25px;
+    font-size: 1.3em;
+    color: white;
+    background-color: #ff6584;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-family: 'Arial', sans-serif;
+}
+
+.btn:hover {
+    background-color: #ff8b9f;
+    transform: translateY(-5px);
+}
+
+/* Keyframe animations */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0.85);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Floating hearts effect */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6584;
+    transform: rotate(-45deg);
+    animation: float 8s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 101, 132, 0.7);
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6584;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-150px) rotate(-45deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-300px) rotate(-45deg);
+        opacity: 0;
+    }
+}
+
+/* Random placement and delay for multiple hearts */
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.heart:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.heart:nth-child(4) {
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.heart:nth-child(5) {
+    left: 90%;
+    animation-delay: 3s;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    .message {
+        font-size: 1em;
+        padding: 15px;
+        background-size: contain;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1.1em;
+    }
+}
