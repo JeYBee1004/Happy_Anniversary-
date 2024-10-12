@@ -49,7 +49,7 @@ h1 {
 /* Message with background image */
 .message {
     font-size: 1.2em;
-    color: #ffffff;
+    color: #000000;
     background-image: url('https://imgur.com/u687lCW.jpg');
     background-size: contain; /* Contain instead of cover */
     background-position: center;
